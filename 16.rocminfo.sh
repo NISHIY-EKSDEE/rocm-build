@@ -2,7 +2,7 @@
 
 set -e
 
-sudo apt install pciutils
+sudo apt install -y pciutils
 
 mkdir -p $ROCM_BUILD_DIR/rocminfo
 cd $ROCM_BUILD_DIR/rocminfo

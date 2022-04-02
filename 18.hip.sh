@@ -2,10 +2,10 @@
 
 set -e
 
-#sudo apt install -y mesa-common-dev
-#sudo apt install -y dpkg-dev rpm doxygen libelf-dev rename liburi-encode-perl \
-#                    libfile-basedir-perl libfile-copy-recursive-perl libfile-listing-perl libfile-which-perl
-#sudo apt install -y file
+sudo apt install -y mesa-common-dev
+sudo apt install -y dpkg-dev rpm libelf-dev rename liburi-encode-perl \
+                    libfile-basedir-perl libfile-copy-recursive-perl libfile-listing-perl libfile-which-perl
+sudo apt install -y file
 
 mkdir -p $ROCM_BUILD_DIR/hip
 cd $ROCM_BUILD_DIR/hip
@@ -18,12 +18,14 @@ HIP_DIR=$ROCM_GIT_DIR/HIP
 START_TIME=`date +%s`
 
 cmake \
+    -DOFFLOAD_ARCH_STR="$AMDGPU_TARGETS" \
     -DHIP_COMMON_DIR="$HIP_DIR" \
     -DAMD_OPENCL_PATH="$OPENCL_DIR" \
     -DROCCLR_PATH="$ROCCLR_DIR" \
     -DCMAKE_PREFIX_PATH="$ROCM_INSTALL_DIR" \
     -DCMAKE_BUILD_TYPE=Release \
     -DCPACK_GENERATOR=DEB \
+    -DROCM_PATCH_VERSION=50100 \
     -G Ninja \
     $ROCM_GIT_DIR/hipamd
 
