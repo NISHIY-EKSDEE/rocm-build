@@ -6,6 +6,11 @@ mkdir -p $ROCM_BUILD_DIR/rocrand
 cd $ROCM_BUILD_DIR/rocrand
 pushd .
 
+cd $ROCM_GIT_DIR/rocRAND
+git reset --hard
+git apply $ROCM_PATCH_DIR/24.rocrand-1.patch
+cd $ROCM_BUILD_DIR/rocrand
+
 START_TIME=`date +%s`
 
 CXX=$ROCM_INSTALL_DIR/hip/bin/hipcc cmake \
