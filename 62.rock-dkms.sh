@@ -1,8 +1,6 @@
 
 set -e
 
-sudo apt -y install autoconf
-
 TARGET_DIR=$ROCM_BUILD_DIR/rock-dkms/usr/src/amdgpu-5.1-36
 
 mkdir -p $TARGET_DIR
