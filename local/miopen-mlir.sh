@@ -8,6 +8,10 @@ mkdir -p $ROCM_BUILD_DIR/miopen-mlir
 cd $ROCM_BUILD_DIR/miopen-mlir
 pushd .
 
+cd $SRC_DIR
+git checkout release/rocm-5.1
+cd $ROCM_BUILD_DIR/miopen-mlir
+
 START_TIME=`date +%s`
 
 cmake \
