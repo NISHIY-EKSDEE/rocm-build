@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH=/opt/rocm/bin:$PATH
+#export PATH=/opt/rocm/bin:$PATH
 
 mkdir -p build
 
