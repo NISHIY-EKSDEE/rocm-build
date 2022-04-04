@@ -21,11 +21,12 @@ cmake \
     -DCMAKE_BUILD_TYPE=Release \
     -DCPACK_GENERATOR=DEB \
     -DROCM_PATCH_VERSION=50100 \
+    -DCMAKE_INSTALL_PREFIX=$ROCM_BUILD_DIR/hip/install \
     -G Ninja \
     $ROCM_GIT_DIR/hipamd
 
 ninja
-sudo ninja install
+# sudo ninja install
 ninja package
 # sudo dpkg -i *.deb
 sudo dpkg -i hip-dev*.deb hip-doc*.deb hip-runtime-amd*.deb hip-samples*.deb
